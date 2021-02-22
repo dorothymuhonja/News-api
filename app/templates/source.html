@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% for source in sources %}
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title" style='text-decoration:underline;'>{{ source.title }}</h2>
+            <h4 class="card-text">{{ source.description }}</h4>
+            <h4 class="card-text text-muted">News Source : {{ source.source_name.name }}</h4>
+            <h5 class="card-text"><small class="text-muted">Published On : {{ source.date_published }}</small></h5>
+            <h5 class="card-text"><small class="text-muted">Author : {{ source.author }}</small></h5>
+            <a class="btn btn-outline-success" href="{{ source.url_link }}" target='_blank' role="button">View Full
+                Story</a>
+        </div>
+        <img src="{{ source.url_image }}" class="card-img-bottom" alt="articles image">
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

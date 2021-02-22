@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% import 'macro.html' as macro %}
+
+{% block content %}
+
+<h1 class='text-center' style='text-decoration:underline;'>CNN ARTICLES</h1>
+{{ macro.displayArticleList(cnn) }}
+
+<h1 class='text-center' style='text-decoration:underline;'>AL-JAZEERA ARTICLES</h1>
+{{ macro.displayArticleList(al_jazeera) }}
+
+<h1 class='text-center' style='text-decoration:underline;'>CBS NEWS ARTICLES</h1>
+{{ macro.displayArticleList(cbs_news) }}
+
+<h1 class='text-center' style='text-decoration:underline;'>FOX NEWS ARTICLES</h1>
+{{ macro.displayArticleList(fox_news) }}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% macro displaySourcesList(sources_list) %}
+
+{% for sources in sources_list %}
+
+<div class='container-fluid'>
+
+    <div class="jumbotron">
+        <h1 class="display-4">{{sources.name}}</h1>
+        <p class="lead">{{sources.description}}</p>
+        <hr class="my-4">
+        <p>Category : <span style='text-transform:capitalize;'>{{sources.category}}</span> </p>
+        <a class="btn btn-primary btn-lg" href="/articles/{{ sources.id }}" role="button">View Source </a>
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endmacro %}
+
+{% macro displayArticleList(article_list) %}
+
+{% for articles in article_list %}
+
+<div class='container'>
+
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-lg-12'>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title" style='text-decoration:underline;'>{{ articles.title }}</h2>
+                    <h4 class="card-text">{{ articles.description }}</h4>
+                    <h4 class="card-text text-muted">News Source : {{ articles.source_name.name }}</h4>
+                    <h5 class="card-text"><small class="text-muted">Published On : {{ articles.date_published }}</small>
+                    </h5>
+                    <h5 class="card-text"><small class="text-muted">Author : {{ articles.author }}</small></h5>
+                    <a class="btn btn-outline-success" href="{{ articles.url_link }}" target='_blank' role="button">View
+                        Full Story</a>
+                </div>
+                <img src="{{ articles.url_image }}" class="card-img-bottom" alt="articles image">
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+</div>
+
+{% endfor %}
+{% endmacro %}
