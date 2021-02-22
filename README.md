@@ -28,7 +28,7 @@ A web application that gives the user access to various news outlets on the home
 
     source venv/bin/activate
 
-### Install the reauired dependencies
+### Install the required dependencies
     pip install -r requirements.txt
 
 ### Copy environment variable
