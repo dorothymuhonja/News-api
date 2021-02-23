@@ -2,7 +2,7 @@ from flask import render_template,request,redirect,url_for
 from . import main
 from newsapi import NewsApiClient
 from ..request import get_sources, get_article,get_source_article
-from ..models import News_source,News_article
+
 
 @main.route('/')
 def index():
