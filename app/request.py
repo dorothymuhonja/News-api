@@ -1,4 +1,5 @@
 import urllib.request, json
+from newsapi import NewsApiClient
 from .models import News_source, News_article
 
 api_key = None
@@ -11,6 +12,7 @@ def configure_request(app):
     global api_key, base_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_BASE_URL']
+    article_url = app.config['ARTICLES_API_BASE_URL']
     
 def get_sources(category):
     get_sources_url = base_url.format(category,api_key)
@@ -24,6 +26,7 @@ def get_sources(category):
         if get_sources_response['sources']:
             sources_result_list = get_sources_response['sources']
             sources_result = process_results(sources_result_list)
+            
     return sources_result
 
 def process_results(sources_list):
@@ -42,7 +45,7 @@ def process_results(sources_list):
     return sources_result
 
 def get_article(sources):
-    get_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(sources,api_key)
+    get_article_url = article_url(sources,api_key)
     
     with urllib.request.urlopen(get_article_url) as url:
         get_article_data = url.read()
