@@ -1,8 +1,9 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from newsapi import NewsApiClient
+# from newsapi import NewsApiClient
 from ..request import get_sources, get_article,get_source_article
 
+NEWS_API_KEY='1d236ddbaf1a4d11a4ff7ca2a09880bc'
 
 @main.route('/')
 def index():
@@ -26,4 +27,4 @@ def source_art(id):
     title = f'{id} | News Articles'
     sources = get_source_article(id)
 
-    return render_template('sourcearticle.html', title= title, sources=sources)
+    return render_template('source.html', title= title, sources=sources)
